@@ -1,10 +1,7 @@
-# %% [markdown]
-# # 📌 Advanced Multivariate Retail Demand Forecasting
-# 
-# ## 🎯 GOAL
+
+ ##  GOAL
 # Improve our baseline LSTM model by adding **time-based features** (Day of Week, Month). This helps the model explicitly learn weekly and yearly seasonal patterns, significantly improving its predictive power over using just historical sales alone.
 
-# %%
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -17,11 +14,11 @@ import math
 import warnings
 warnings.filterwarnings('ignore')
 
-# %% [markdown]
+
 # ## 1. LOAD DATA & FEATURE ENGINEERING
 # We will extract cyclical time features directly from the 'date' column.
 
-# %%
+
 # Load data
 import os
 
@@ -53,8 +50,8 @@ df_filtered.set_index('date', inplace=True)
 
 # --- NEW MULTIVARIATE FEATURE ENGINEERING ---
 # Extracting properties from the date
-df_filtered['day_of_week'] = df_filtered.index.dayofweek  # 0=Monday, 6=Sunday
-df_filtered['month'] = df_filtered.index.month          # 1 to 12
+df_filtered['day_of_week'] = df_filtered.index.dayofweek  
+df_filtered['month'] = df_filtered.index.month          
 
 # Our inputs now include sales AND time features
 features = ['sales', 'day_of_week', 'month']
@@ -65,19 +62,16 @@ print(ts_data.head())
 
 # %% [markdown]
 # ## 2. SCALING MULTIVARIATE DATA
-# We scale all features to [0,1]. We will save a scaler for the target variable separately so we can easily un-scale our predictions back to actual sales numbers later.
 
-# %%
 # Scale all features (sales, day_of_week, month)
 scaler_all = MinMaxScaler(feature_range=(0, 1))
 scaled_data = scaler_all.fit_transform(ts_data)
 
-# Create a separate scaler specifically for the 'sales' column (which is at index 0)
-# This prevents errors when trying to inverse-transform the single-dimension prediction.
+
 scaler_target = MinMaxScaler(feature_range=(0, 1))
 scaler_target.fit(ts_data[['sales']])
 
-# %% [markdown]
+
 # ## 3. TRAIN-TEST SPLIT & MULTIVARIATE SEQUENCES
 
 # %%
@@ -128,7 +122,7 @@ history = model.fit(
 
 # %% [markdown]
 # ## 5. EVALUATION
-# Because we used a dedicated scaler for the target variable, un-scaling our 1D predictions is straightforward.
+
 
 # %%
 train_predict = model.predict(X_train)
