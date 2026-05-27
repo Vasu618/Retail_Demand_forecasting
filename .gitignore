@@ -25,9 +25,9 @@ nohup.out
 .DS_Store
 Thumbs.db
 
-# Data (large files - use DVC or cloud storage)
-data/
-*.csv
+# Data (Under 100MB, safe for GitHub)
+# data/
+# *.csv
 
 # IDE
 .vscode/
