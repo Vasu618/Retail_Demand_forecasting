@@ -13,13 +13,19 @@ warnings.filterwarnings('ignore')
 sns.set_theme(style="whitegrid")
 plt.rcParams.update({'figure.figsize': (14, 7), 'figure.dpi': 300, 'font.size': 12})
 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
 # 1. Create 'images' folder
-output_dir = "images"
+output_dir = os.path.join(script_dir, "images")
 os.makedirs(output_dir, exist_ok=True)
 print(f"Directory '{output_dir}/' is ready.")
 
 # 2. Load and validate data
-data_path = "data/train.csv"
+data_path = os.path.join(script_dir, "data", "train.csv")
+if not os.path.exists(data_path):
+    # Fallback
+    data_path = "data/train.csv"
+
 if not os.path.exists(data_path):
     raise FileNotFoundError(f"CRITICAL ERROR: {data_path} not found. Please provide the real dataset.")
 

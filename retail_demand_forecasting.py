@@ -23,10 +23,17 @@ warnings.filterwarnings('ignore')
 import pandas as pd
 import os
 
-if not os.path.exists("data/train.csv"):
-    raise FileNotFoundError("CRITICAL ERROR: data/train.csv not found. Please ensure the actual dataset is placed in the 'data' folder. STOPPING execution.")
+script_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(script_dir, "data", "train.csv")
 
-df = pd.read_csv("data/train.csv")
+if not os.path.exists(data_path):
+    # Fallback to local 'data'
+    data_path = "data/train.csv"
+
+if not os.path.exists(data_path):
+    raise FileNotFoundError(f"CRITICAL ERROR: {data_path} not found. Please ensure the actual dataset is placed in the 'data' folder. STOPPING execution.")
+
+df = pd.read_csv(data_path)
 print("Dataset Loaded Successfully")
 print(df.head())
 

@@ -1,21 +1,34 @@
-# Data
-data/
-*.csv
-
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 venv/
 env/
+"venv 2"/
 .env
+
+# Streamlit runtime files
+streamlit.log
+streamlit.pid
+nohup.out
 
 # Jupyter Notebooks
 .ipynb_checkpoints/
 
-# Models
+# Trained model artifacts
 *.h5
 *.keras
 *.pkl
 
 # OS
 .DS_Store
+Thumbs.db
+
+# Data (large files - use DVC or cloud storage)
+data/
+*.csv
+
+# IDE
+.vscode/
+.idea/
