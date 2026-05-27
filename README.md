@@ -1,3 +1,13 @@
+---
+title: Retail Demand Forecasting
+emoji: 📈
+colorFrom: blue
+colorTo: green
+sdk: streamlit
+app_file: dashboard.py
+pinned: false
+---
+
 # Retail Demand Forecasting using LSTM 
 
 ##  Project Overview
