@@ -15,4 +15,4 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push --force https://vasu8960:$HF_TOKEN@huggingface.co/spaces/vasu8960/retail_demand_forecasting main
+        run: git push --force https://vasu8960:$HF_TOKEN@huggingface.co/spaces/vasu8960/retail_demand_forecasting HEAD:main
