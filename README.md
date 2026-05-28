@@ -8,7 +8,9 @@ app_file: dashboard.py
 pinned: false
 ---
 
-# Retail Demand Forecasting using LSTM 
+# Retail Demand Forecasting Platform
+
+[![Live App](https://img.shields.io/badge/Live_Dashboard-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://retail-demand--forecasting.streamlit.app/)
 
 ##  Project Overview
 This project predicts future product demand (sales) using historical time-series data. Accurate demand forecasting is critical for retail businesses to optimize inventory, minimize stockouts, and reduce storage costs.
