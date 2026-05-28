@@ -1,13 +1,3 @@
----
-title: Retail Demand Forecasting
-emoji: 📈
-colorFrom: blue
-colorTo: green
-sdk: streamlit
-app_file: dashboard.py
-pinned: false
----
-
 # Retail Demand Forecasting Platform
 
 [![Live App](https://img.shields.io/badge/Live_Dashboard-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://retail-demand--forecasting.streamlit.app/)
